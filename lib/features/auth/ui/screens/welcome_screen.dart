@@ -1,4 +1,3 @@
-import 'package:firebase_ecom/app/app_colors.dart';
 import 'package:firebase_ecom/app/asset_paths.dart';
 import 'package:firebase_ecom/app/constants.dart';
 import 'package:firebase_ecom/features/auth/ui/screens/login_screen.dart';
@@ -6,6 +5,8 @@ import 'package:firebase_ecom/features/auth/ui/screens/register_screen.dart';
 import 'package:firebase_ecom/features/auth/ui/widgets/custom_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../widgets/custom_title_subtitle.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -18,24 +19,12 @@ class WelcomeScreen extends StatelessWidget {
           padding: EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: .center,
-
+            mainAxisAlignment: .spaceBetween,
             children: [
               Image.asset(AssetPaths.welcomeScreenImage),
-              const SizedBox(height: 20),
-              Text(
-                textAlign: .center,
-                AppConstants.welcomeScreenText1,
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.primaryColor,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                AppConstants.welcomeScreenTex2,
-                textAlign: .center,
-                style: TextStyle(fontSize: 16),
+              CustomTitleAndSubtitle(
+                title: AppConstants.welcomeScreenText1,
+                subtitle: AppConstants.welcomeScreenTex2,
               ),
               Spacer(),
               Row(

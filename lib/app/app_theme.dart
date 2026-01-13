@@ -12,6 +12,22 @@ class AppTheme {
         primary: AppColors.primaryColor,
         surface: AppColors.lightThemeBackgroundColor,
       ),
+      inputDecorationTheme: InputDecorationThemeData(
+        filled: true,
+        fillColor: AppColors.filledBackgroundColor,
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(width: 2, color: Colors.red),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(width: 2, color: AppColors.primaryColor),
+        ),
+      ),
     );
   }
 }
