@@ -1,3 +1,4 @@
+import 'package:firebase_ecom/core/utils/device/size_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/constants.dart';
@@ -20,22 +21,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return GestureDetector(
       onTap: () => DeviceUtility.hideKeyboard(context),
       child: Scaffold(
-        appBar: CustomAppBar(),
+        appBar: const CustomAppBar(),
         body: SafeArea(
           child: ScrollableFullHeight(
-            padding: const EdgeInsets.all(15),
+            padding: EdgeInsets.all(15.w),
             child: Column(
-              // This works perfectly now!
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomTitleAndSubtitle(
+                const CustomTitleAndSubtitle(
                   title: AppConstants.registerScreenText1,
                   subtitle: AppConstants.registerScreenText2,
                   subfontSize: 16,
                   subfontWight: FontWeight.w800,
                 ),
 
-                // Grouping inputs and buttons at the bottom
                 Column(
                   children: [
                     TextFormField(
@@ -44,7 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         hintStyle: TextStyle(color: Colors.black45),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     TextFormField(
                       obscureText: true,
                       decoration: const InputDecoration(
@@ -52,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         hintStyle: TextStyle(color: Colors.black45),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     TextFormField(
                       obscureText: true,
                       decoration: const InputDecoration(
@@ -61,13 +60,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
 
-                    const SizedBox(height: 40),
-                    CustomButtonWidget(title: "Sign up"),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 40.h),
+                    const CustomButtonWidget(title: "Sign up"),
+                    SizedBox(height: 20.h),
                     CustomButtonWidget(
                       title: "Already have an account?",
                       backgroundColor: Colors.transparent,
                       textColor: Colors.black87,
+                      onTap: () => Navigator.pop(context),
                     ),
                   ],
                 ),

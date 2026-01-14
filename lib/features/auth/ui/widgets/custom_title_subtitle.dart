@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_ecom/core/utils/device/size_utils.dart';
 
 import '../../../../app/app_colors.dart';
 
@@ -23,19 +24,19 @@ class CustomTitleAndSubtitle extends StatelessWidget {
         Text(
           title,
           textAlign: TextAlign.center,
-          style: const TextStyle(
+          style: TextStyle(
             color: AppColors.primaryColor,
             fontWeight: FontWeight.bold,
-            fontSize: 35,
+            fontSize: 35.sp,
           ),
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: 10.h),
         Text(
           subtitle,
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.black.withOpacity(.6),
-            fontSize: subfontSize ?? 15,
+            fontSize: (subfontSize ?? 15).sp,
             fontWeight: subfontWight ?? FontWeight.normal,
           ),
         ),

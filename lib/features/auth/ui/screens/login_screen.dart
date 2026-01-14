@@ -1,6 +1,7 @@
 import 'package:firebase_ecom/app/app_colors.dart';
 import 'package:firebase_ecom/app/constants.dart';
 import 'package:firebase_ecom/core/utils/device/device_utility.dart';
+import 'package:firebase_ecom/core/utils/device/size_utils.dart';
 import 'package:firebase_ecom/features/auth/ui/screens/register_screen.dart';
 import 'package:firebase_ecom/features/auth/ui/widgets/custom_app_bar.dart';
 import 'package:firebase_ecom/features/auth/ui/widgets/custom_button_widget.dart';
@@ -23,22 +24,20 @@ class _LoginScreenState extends State<LoginScreen> {
     return GestureDetector(
       onTap: () => DeviceUtility.hideKeyboard(context),
       child: Scaffold(
-        appBar: CustomAppBar(),
+        appBar: const CustomAppBar(),
         body: SafeArea(
           child: ScrollableFullHeight(
-            padding: const EdgeInsets.all(15),
+            padding: EdgeInsets.all(15.w),
             child: Column(
-              // This works perfectly now!
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomTitleAndSubtitle(
+                const CustomTitleAndSubtitle(
                   title: AppConstants.loginScreenText1,
                   subtitle: AppConstants.loginScreenText2,
                   subfontSize: 20,
                   subfontWight: FontWeight.w800,
                 ),
 
-                // Grouping inputs and buttons at the bottom
                 Column(
                   children: [
                     TextFormField(
@@ -47,29 +46,33 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintStyle: TextStyle(color: Colors.black45),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     TextFormField(
                       obscureText: true,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.remove_red_eye),
+                        ),
                         hintText: "Password",
                         hintStyle: TextStyle(color: Colors.black45),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Align(
                       alignment: Alignment.centerRight,
                       child: Text(
                         "Forgot your password?",
                         style: TextStyle(
                           color: AppColors.primaryColor,
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    CustomButtonWidget(title: "Sign in"),
-                    const SizedBox(height: 30),
+                    SizedBox(height: 20.h),
+                    const CustomButtonWidget(title: "Sign in"),
+                    SizedBox(height: 30.h),
                     CustomButtonWidget(
                       title: "Create new account",
                       backgroundColor: Colors.transparent,
