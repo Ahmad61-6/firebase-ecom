@@ -9,6 +9,7 @@ import 'package:firebase_ecom/features/auth/ui/widgets/custom_title_subtitle.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../controller/login_screen_controller.dart';
 import '../widgets/scrollable_full_height.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,6 +20,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final LoginScreenController controller = Get.find<LoginScreenController>();
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -47,15 +50,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     SizedBox(height: 20.h),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.remove_red_eye),
+                    Obx(
+                      () => TextFormField(
+                        obscureText: controller.isPasswordVisible.value,
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              controller.togglePasswordVisibility();
+                            },
+                            icon: Icon(
+                              controller.isPasswordVisible.value
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
+                          ),
+                          hintText: "Password",
+                          hintStyle: TextStyle(color: Colors.black45),
                         ),
-                        hintText: "Password",
-                        hintStyle: TextStyle(color: Colors.black45),
                       ),
                     ),
                     SizedBox(height: 20.h),

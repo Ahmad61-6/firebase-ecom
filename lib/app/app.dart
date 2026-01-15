@@ -1,4 +1,5 @@
 import 'package:firebase_ecom/app/app_theme.dart';
+import 'package:firebase_ecom/core/bindings/controller_binder.dart';
 import 'package:firebase_ecom/core/utils/device/size_utils.dart';
 import 'package:firebase_ecom/features/auth/ui/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class FirebaseEcom extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightThemeData,
           home: const SplashScreen(),
+          initialBinding: ControllerBinder(),
         );
       },
     );
