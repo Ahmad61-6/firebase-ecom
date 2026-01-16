@@ -15,19 +15,10 @@ class ScrollableFullHeight extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         return SingleChildScrollView(
-          // Uses 'physics' to ensure it feels natural (bouncing on iOS, etc.)
           physics: const AlwaysScrollableScrollPhysics(),
           child: ConstrainedBox(
-            constraints: BoxConstraints(
-              // Forces the content to be at least as tall as the screen
-              minHeight: constraints.maxHeight,
-            ),
-            child: Padding(
-              padding: padding,
-              // IntrinsicHeight is sometimes needed to force the child to stretch,
-              // but often just the ConstrainedBox is enough.
-              child: child,
-            ),
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: Padding(padding: padding, child: child),
           ),
         );
       },

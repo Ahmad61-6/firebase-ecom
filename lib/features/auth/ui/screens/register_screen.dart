@@ -1,8 +1,12 @@
 import 'package:firebase_ecom/core/utils/device/size_utils.dart';
+import 'package:firebase_ecom/features/auth/ui/screens/login_screen.dart';
+import 'package:firebase_ecom/features/auth/ui/screens/profile_setup_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../app/constants.dart';
 import '../../../../core/utils/device/device_utility.dart';
+import '../controller/register_screen_controller.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_button_widget.dart' show CustomButtonWidget;
 import '../widgets/custom_title_subtitle.dart';
@@ -16,6 +20,8 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final controller = Get.find<RegisterScreenController>();
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -28,48 +34,73 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const CustomTitleAndSubtitle(
+                CustomTitleAndSubtitle(
                   title: AppConstants.registerScreenText1,
                   subtitle: AppConstants.registerScreenText2,
-                  subfontSize: 16,
+                  subfontSize: 16.h,
                   subfontWight: FontWeight.w800,
                 ),
 
-                Column(
-                  children: [
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        hintText: "Email",
-                        hintStyle: TextStyle(color: Colors.black45),
+                Obx(
+                  () => Column(
+                    children: [
+                      TextFormField(
+                        decoration: const InputDecoration(
+                          hintText: "Email",
+                          hintStyle: TextStyle(color: Colors.black45),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20.h),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                        hintText: "Password",
-                        hintStyle: TextStyle(color: Colors.black45),
+                      SizedBox(height: 20.h),
+                      TextFormField(
+                        obscureText: controller.isPasswordVisibleField_1.value,
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              controller.togglePasswordVisibility(1);
+                            },
+                            icon: Icon(
+                              controller.isPasswordVisibleField_1.value
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
+                          ),
+                          hintText: "Password",
+                          hintStyle: TextStyle(color: Colors.black45),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20.h),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                        hintText: "Confirm Password",
-                        hintStyle: TextStyle(color: Colors.black45),
+                      SizedBox(height: 20.h),
+                      TextFormField(
+                        obscureText: controller.isPasswordVisibleField_2.value,
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              controller.togglePasswordVisibility(2);
+                            },
+                            icon: Icon(
+                              controller.isPasswordVisibleField_2.value
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
+                          ),
+                          hintText: "Confirm Password",
+                          hintStyle: TextStyle(color: Colors.black45),
+                        ),
                       ),
-                    ),
 
-                    SizedBox(height: 40.h),
-                    const CustomButtonWidget(title: "Sign up"),
-                    SizedBox(height: 20.h),
-                    CustomButtonWidget(
-                      title: "Already have an account?",
-                      backgroundColor: Colors.transparent,
-                      textColor: Colors.black87,
-                      onTap: () => Navigator.pop(context),
-                    ),
-                  ],
+                      SizedBox(height: 40.h),
+                      CustomButtonWidget(
+                        title: "Sign up",
+                        onTap: () => Get.to(() => ProfileSetupScreen()),
+                      ),
+                      SizedBox(height: 20.h),
+                      CustomButtonWidget(
+                        title: "Already have an account?",
+                        backgroundColor: Colors.transparent,
+                        textColor: Colors.black87,
+                        onTap: () => Get.to(() => const LoginScreen()),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(),
                 const SizedBox(),

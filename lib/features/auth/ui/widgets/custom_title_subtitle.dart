@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_ecom/core/utils/device/size_utils.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../app/app_colors.dart';
 

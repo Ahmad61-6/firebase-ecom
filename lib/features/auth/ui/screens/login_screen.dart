@@ -34,10 +34,10 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const CustomTitleAndSubtitle(
+                CustomTitleAndSubtitle(
                   title: AppConstants.loginScreenText1,
                   subtitle: AppConstants.loginScreenText2,
-                  subfontSize: 20,
+                  subfontSize: 20.h,
                   subfontWight: FontWeight.w800,
                 ),
 

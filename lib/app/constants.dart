@@ -11,4 +11,8 @@ class AppConstants {
   static const String registerScreenText1 = "Create Account";
   static const String registerScreenText2 =
       "Create an account so you can explore all the existing jobs";
+
+  static const String profileSetupScreenText1 = "Profile Setup";
+  static const String profileSetupScreenText2 =
+      "Please fill be below details to complete your profile.";
 }
