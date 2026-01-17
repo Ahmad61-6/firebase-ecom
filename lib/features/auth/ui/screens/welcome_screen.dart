@@ -33,6 +33,7 @@ class WelcomeScreen extends StatelessWidget {
                     child: CustomButtonWidget(
                       onTap: () => Get.to(() => const LoginScreen()),
                       title: 'Login',
+                      showShadow: true,
                     ),
                   ),
                   const SizedBox(width: 20),
@@ -42,6 +43,7 @@ class WelcomeScreen extends StatelessWidget {
                       title: "Register",
                       backgroundColor: Colors.transparent,
                       textColor: Colors.black,
+                      showShadow: false,
                     ),
                   ),
                 ],

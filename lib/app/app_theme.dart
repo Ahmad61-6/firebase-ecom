@@ -27,6 +27,10 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(width: 2, color: AppColors.primaryColor),
         ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(width: 2, color: Colors.red),
+        ),
       ),
     );
   }

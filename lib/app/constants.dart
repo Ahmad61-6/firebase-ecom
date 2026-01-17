@@ -15,4 +15,7 @@ class AppConstants {
   static const String profileSetupScreenText1 = "Profile Setup";
   static const String profileSetupScreenText2 =
       "Please fill be below details to complete your profile.";
+
+  static const String homeScreenText1 = "Hello Fola 👋";
+  static const String homeScreenText2 = "Let’s start shopping!";
 }
