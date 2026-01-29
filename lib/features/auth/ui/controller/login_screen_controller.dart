@@ -1,4 +1,4 @@
-import 'package:firebase_ecom/features/home/screens/home_screen.dart';
+import 'package:firebase_ecom/features/common/screens/main_bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +28,7 @@ class LoginScreenController extends GetxController {
       await Future.delayed(Duration(seconds: 2));
       isLoading.value = false;
       Get.offAll(
-        () => HomeScreen(),
+        () => MainBottomNavbar(),
         transition: Transition.fade,
         duration: const Duration(seconds: 1),
       )?.then((_) {

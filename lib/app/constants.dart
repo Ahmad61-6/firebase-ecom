@@ -18,4 +18,5 @@ class AppConstants {
 
   static const String homeScreenText1 = "Hello Fola 👋";
   static const String homeScreenText2 = "Let’s start shopping!";
+  static const String homeScreenText3 = "Top Category";
 }

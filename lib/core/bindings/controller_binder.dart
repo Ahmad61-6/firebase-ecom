@@ -1,4 +1,5 @@
 import 'package:firebase_ecom/features/auth/ui/controller/register_screen_controller.dart';
+import 'package:firebase_ecom/features/common/controllers/main_bottom_nav_bar_controller.dart';
 import 'package:get/get.dart';
 
 import '../../features/auth/ui/controller/login_screen_controller.dart';
@@ -9,5 +10,6 @@ class ControllerBinder extends Bindings {
     // TODO: implement dependencies
     Get.put<LoginScreenController>(LoginScreenController());
     Get.put<RegisterScreenController>(RegisterScreenController());
+    Get.put<MainBottomNavBarController>(MainBottomNavBarController());
   }
 }
